@@ -11,7 +11,7 @@ class Margherita : public Pizza {
 int cost_tot;
 
 
-public:
+    public:
 
         int cost() override;
         int getpizzaid() override;
@@ -20,7 +20,7 @@ public:
 
         int getCost_tot() const;
         void setCost_tot(int value);
-};
+    };
 
 
 #endif //PIZZERIA_MARGHERITA_H

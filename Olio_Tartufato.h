@@ -13,7 +13,7 @@ class Olio_Tartufato: public Ingredient {
 
  public:
 
-         int getCost() override ;
+         int getCost() override;
          int getingredientid() override;
 
      };

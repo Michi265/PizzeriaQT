@@ -1,8 +1,11 @@
-#ifndef PIZZERIA_PIZZA_H
-#define PIZZERIA_PIZZA_H
+//#ifndef PIZZERIA_PIZZA_H
+//#define PIZZERIA_PIZZA_H
+#ifndef PIZZERIA_INGREDIENT_H
+#define PIZZERIA_INGREDIENT_H
+
 
 #include <vector>
-#include "string"
+#include <string>
 using namespace std;
 
 class Ingredient {
@@ -24,4 +27,4 @@ private:
 };
 
 
-#endif //PIZZERIA_PIZZA_H
+#endif //PIZZERIA_INGREDIENT_H

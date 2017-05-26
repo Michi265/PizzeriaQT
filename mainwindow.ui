@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>474</width>
+    <height>387</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -37,21 +42,21 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget_2">
+   <widget class="QListWidget" name="order_list">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>170</y>
-      <width>351</width>
-      <height>61</height>
+      <y>190</y>
+      <width>441</width>
+      <height>71</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="removeButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>230</y>
+      <x>360</x>
+      <y>260</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -69,6 +74,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Choose your pizza</string>
     </property>
@@ -76,11 +86,16 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>250</x>
       <y>20</y>
       <width>151</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Add ingredients</string>
@@ -89,7 +104,7 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>348</x>
+      <x>420</x>
       <y>0</y>
       <width>51</width>
       <height>41</height>
@@ -99,23 +114,10 @@
      <string>X</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>120</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QCheckBox" name="b">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>250</x>
       <y>50</y>
       <width>92</width>
       <height>23</height>
@@ -128,11 +130,14 @@
    <widget class="QCheckBox" name="ol">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>250</x>
       <y>70</y>
       <width>131</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="text">
      <string>Olio_Tartufato</string>
@@ -141,14 +146,58 @@
    <widget class="QCheckBox" name="fp">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>250</x>
       <y>90</y>
-      <width>121</width>
+      <width>131</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Funghi_Porcini</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Order :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="total">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>310</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>310</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Total : </string>
     </property>
    </widget>
   </widget>

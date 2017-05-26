@@ -7,13 +7,16 @@
 using namespace std;
 
 class Napoli : public Pizza {
-
+int cost_tot;
     public:
 
         int cost() override;
         int getpizzaid() override;
 
         Napoli(){}
+
+        int getCost_tot() const;
+        void setCost_tot(int value);
 
 
     };

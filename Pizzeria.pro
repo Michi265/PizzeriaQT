@@ -27,7 +27,6 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Pizza.cpp \
     Ingredient.cpp \
-    IngredientsFactory.cpp \
     Funghi_Porcini.cpp \
     Bufala.cpp \
     Olio_Tartufato.cpp \
@@ -39,7 +38,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     Pizza.h \
     Ingredient.h \
-    IngredientsFactory.h \
     Funghi_Porcini.h \
     Bufala.h \
     Olio_Tartufato.h \

@@ -3,7 +3,7 @@
 
 int Funghi_Porcini::getCost() {
 
-    int basecost=1;
+    int basecost=3;
 
     return basecost;
 }

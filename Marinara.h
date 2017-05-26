@@ -3,12 +3,12 @@
 #define PIZZERIA_MARINARA_H
 
 
-#include "string"
+#include <string>
 #include "Pizza.h"
 using namespace std;
 
 class Marinara : public Pizza {
-
+int cost_tot;
     public:
 
         int cost() override;
@@ -16,6 +16,9 @@ class Marinara : public Pizza {
 
 
        Marinara(){}
+
+       int getCost_tot() const;
+       void setCost_tot(int value);
 
 
     };

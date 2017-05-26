@@ -4,7 +4,7 @@
 
 int Olio_Tartufato::getCost() {
 
-        int basecost=1;
+        int basecost=2;
 
         return basecost;
 }

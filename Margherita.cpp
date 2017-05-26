@@ -1,4 +1,7 @@
 #include "Margherita.h"
+#include <iostream>
+#include "stdio.h"
+#include <string>
 
 int Margherita::getCost_tot() const
 {
