@@ -28,6 +28,14 @@ MainWindow::MainWindow(QWidget *parent) :
       palette.setBrush(QPalette::Background, bkgnd);
       this->setPalette(palette);
 
+
+        // Set the number of columns in the tree
+    ui->treeWidget->setColumnCount(2);
+
+      // Set the headers
+    ui->treeWidget->setHeaderLabels(QStringList() << "Pizza" << "Ingredienti");
+
+
     ui->list_pizza->addItem("Margherita");
     ui->list_pizza->addItem("Marinara");
     ui->list_pizza->addItem("Napoli");
@@ -50,6 +58,45 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
+void MainWindow::addTreeRoot(QString name, QString description){
+
+    //QTreeWidgetItem(QTreeWidget * parent, int type = Type)
+    QTreeWidgetItem *treeItem = new QTreeWidgetItem(ui->treeWidget);
+
+    //QTreeWidgetItem::setText(int column, const QString & text)
+    treeItem->setText(0, name);
+    treeItem->setText(1, description);
+    if(ui->b->isChecked()){
+        Bufala addBufala;
+        addTreeChild(treeItem, name + "", "Bufala");
+
+    }
+    if (ui->ol->isChecked()){
+        Olio_Tartufato addOlio_Tartufato;
+        addTreeChild(treeItem, name + "", "Olio_Tartufato");
+    }
+    if(ui->fp->isChecked()){
+        Funghi_Porcini addFunghi_Porcini;
+        addTreeChild(treeItem, name + "", "Funghi_Porcini");
+    }
+}
+
+void MainWindow::addTreeChild(QTreeWidgetItem *parent, QString name, QString description)
+{
+    // QTreeWidgetItem(QTreeWidget * parent, int type = Type)
+    QTreeWidgetItem *treeItem = new QTreeWidgetItem();
+
+    // QTreeWidgetItem::setText(int column, const QString & text)
+    treeItem->setText(0, name);
+    treeItem->setText(1, description);
+
+    // QTreeWidgetItem::addChild(QTreeWidgetItem * child)
+    parent->addChild(treeItem);
+}
+
+
+
+
 void MainWindow::on_Add_Button_clicked()
 {
 
@@ -60,6 +107,7 @@ void MainWindow::on_Add_Button_clicked()
 
     }
     else{
+
         if (ui->list_pizza->selectedItems().at(0)->text().toStdString()=="Margherita"){
 
             Margherita myPizza;
@@ -68,14 +116,14 @@ void MainWindow::on_Add_Button_clicked()
             if(ui->b->isChecked()){
                 Bufala addBufala;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addBufala.getCost()));
-                ui->order_list->addItem("Bufala");
-                ui->b->update();
+
             }
 
             if (ui->ol->isChecked()){
                 Olio_Tartufato addOlio_Tartufato;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addOlio_Tartufato.getCost()));
-                ui->order_list->addItem("Olio_Tartufato");
+
+
                 ui->ol->update();
             }
 
@@ -83,15 +131,16 @@ void MainWindow::on_Add_Button_clicked()
             if(ui->fp->isChecked()){
                 Funghi_Porcini addFunghi_Porcini;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addFunghi_Porcini.getCost()));
-                ui->order_list->addItem("Funghi_Porcini");
+
                 ui->fp->update();
             }
 
-            if ( myPizza.pizzaname== 10)
-                ui->order_list->addItem("Margherita");
-            ui->order_list->addItem("");
-            total += myPizza.getCost_tot();
+            if ( myPizza.pizzaname== 10){
 
+                addTreeRoot("Margherita","");
+
+            total += myPizza.getCost_tot();
+            }
 
     }
 
@@ -104,24 +153,24 @@ void MainWindow::on_Add_Button_clicked()
             if(ui->b->isChecked()){
                 Bufala addBufala;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addBufala.getCost()));
-                ui->order_list->addItem("Bufala");
+
             }
             if(ui->ol->isChecked()){
                 Olio_Tartufato addOlio_Tartufato;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addOlio_Tartufato.getCost()));
-                ui->order_list->addItem("Olio_Tartufato");
 
             }
             if(ui->fp->isChecked()){
                 Funghi_Porcini addFunghi_Porcini;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addFunghi_Porcini.getCost()));
-                ui->order_list->addItem("Funghi_Porcini");
+                //addTreeChild(treeItem, name + "", "Funghi_Porcini");
+                //ui->order_list->addItem("Funghi_Porcini");
             }
 
             if ( myPizza.pizzaname== 8)
-                ui->order_list->addItem("Marinara");
-            ui->order_list->addItem("");
-            total += myPizza.getCost_tot();
+
+                addTreeRoot("Marinara","");
+                total += myPizza.getCost_tot();
 
         }
 
@@ -135,26 +184,24 @@ void MainWindow::on_Add_Button_clicked()
             if(ui->b->isChecked()){
                 Bufala addBufala;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addBufala.getCost()));
-                ui->order_list->addItem("Bufala");
+
 
             }
             if(ui->ol->isChecked()){
                 Olio_Tartufato addOlio_Tartufato;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addOlio_Tartufato.getCost()));
-                ui->order_list->addItem("Olio_Tartufato");
 
             }
             if(ui->fp->isChecked()){
                 Funghi_Porcini addFunghi_Porcini;
                 myPizza.setCost_tot((myPizza.getCost_tot())+(addFunghi_Porcini.getCost()));
-                ui->order_list->addItem("Funghi_Porcini");
+
 
             }
             if ( myPizza.pizzaname== 6)
-                ui->order_list->addItem("Napoli");
-            ui->order_list->addItem("");
-            total += myPizza.getCost_tot();
+                addTreeRoot("Napoli","");
 
+            total += myPizza.getCost_tot();
 
         }
 
@@ -174,49 +221,99 @@ void MainWindow::on_Add_Button_clicked()
             }
 
     }
+
 }
 
 
 void MainWindow::on_removeButton_clicked()
 {
-    QList<QListWidgetItem*> items = ui->order_list->selectedItems();
-    foreach(QListWidgetItem* item,items){
-
-        QListWidgetItem* tmp = ui->order_list->takeItem(ui->order_list->row(item));
-
-        if (tmp->text() == "Margherita"){
-            total = total - 4;
-            ui->total->setText(QString::number(total));
-        }
-
-        if (tmp->text() == "Marinara"){
-            total = total - 5;
-            ui->total->setText(QString::number(total));
-        }
-
-
-        if (tmp->text() == "Napoli"){
-            total = total - 6;
-            ui->total->setText(QString::number(total));
-        }
-        if (tmp->text() == "Bufala"){
-            total = total - 2;
-            ui->total->setText(QString::number(total));
-        }
-
-        if (tmp->text() == "Olio_Tartufato"){
-            total = total - 2;
-            ui->total->setText(QString::number(total));
-        }
-
-
-        if (tmp->text() == "Funghi_Porcini"){
-            total = total - 3;
-            ui->total->setText(QString::number(total));
-        }
-
-        delete ui->order_list->takeItem(ui->order_list->row(item));
-
+    if(ui->treeWidget->selectedItems().size()==0){
+        QMessageBox msgBox;
+        msgBox.setText(" Select pizza or/and an ingredient! ");
+        msgBox.exec();
     }
+    else {
+            QTreeWidgetItem* item = ui->treeWidget->currentItem();
+            if(item->parent()==NULL){
+                    QList<QTreeWidgetItem *> tmplist = item->takeChildren();
+
+
+
+                    if (item->text(0) == "Margherita"){
+                        total = total - 4;
+                        ui->total->setText(QString::number(total));
+                    }
+
+                    if (item->text(0) == "Marinara"){
+                        total = total - 5;
+                        ui->total->setText(QString::number(total));
+                    }
+
+
+                    if (item->text(0) == "Napoli"){
+                        total = total - 6;
+                        ui->total->setText(QString::number(total));
+                    }
+
+                    for (int i = 0; i < tmplist.size() ;i++){
+                        QTreeWidgetItem* tmp = tmplist.operator [](i);
+
+
+                        if (tmp->text(1) == "Bufala"){
+                            total = total - 2;
+                            ui->total->setText(QString::number(total));
+                        }
+
+                        if (tmp->text(1) == "Olio_Tartufato"){
+                            total = total - 2;
+                            ui->total->setText(QString::number(total));
+                        }
+
+
+                        if (tmp->text(1) == "Funghi_Porcini"){
+                            total = total - 3;
+                            ui->total->setText(QString::number(total));
+                        }
+                    }
+                }
+
+
+                item = ui->treeWidget->currentItem();
+                if(!item)return;
+                int x = ui->treeWidget->indexOfTopLevelItem(item);
+                if(x >= 0 && x < ui->treeWidget->topLevelItemCount())
+                {
+                    item = ui->treeWidget->takeTopLevelItem(x);
+                   if(item)
+                       delete item;
+                }
+
+            else {
+                QTreeWidgetItem* tmp = ui->treeWidget->currentItem();
+
+                if(tmp){
+
+                    if (tmp->text(1) == "Bufala"){
+                        total = total - 2;
+                        ui->total->setText(QString::number(total));
+                    }
+
+                    if (tmp->text(1) == "Olio_Tartufato"){
+                        total = total - 2;
+                        ui->total->setText(QString::number(total));
+                    }
+
+
+                    if (tmp->text(1) == "Funghi_Porcini"){
+                        total = total - 3;
+                        ui->total->setText(QString::number(total));
+                    }
+
+                    delete item->parent()->takeChild(item->parent()->indexOfChild(item));
+                }
+            }
+    }
+
 }
+
 

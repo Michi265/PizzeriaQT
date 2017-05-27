@@ -11,7 +11,8 @@
 #include "Funghi_Porcini.h"
 #include "QMessageBox"
 #include "QInputDialog"
-
+#include <QBrush>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +36,11 @@ private slots:
     void on_Add_Button_clicked();
 
     void on_removeButton_clicked();
+
+
+    void addTreeRoot(QString name, QString description);
+    void addTreeChild(QTreeWidgetItem *parent, QString name, QString description);
+
 
 private:
     Ui::MainWindow *ui;
